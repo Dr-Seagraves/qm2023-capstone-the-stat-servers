@@ -18,28 +18,29 @@ Semester-long capstone for Statistics II: Data Analytics.
 
 Run `python code/config_paths.py` to verify paths.
 
-## Research Question
-Research Question: How sensitive are regional home prices to mortgage rate changes, and do urban and
-suburban markets respond differently?
-Datasets:
-Dataset Source What It Provides
-Shiller Home Price
-Data
-Open Dataset Catalog
-(Shiller Data)
-FRED pandas-datareader API
-Long-run U.S. home price index (national +
-metro-level)
-30-Year Mortgage Rate, Housing Starts,
-Unemployment by state
-BLS (Bureau of Labor
-Statistics) Open Dataset Catalog Metro-level employment and wage growth
-Key Variables:
-Outcome: Year-over-year home price growth (%) by metro
-2 / 11
-Driver: 30-year fixed mortgage rate (lagged 1-3 months)
-Controls: Local unemployment rate, wage growth, housing permits
-Groups: Urban core vs. suburban vs. rural metros
-Why It's Interesting: Mortgage rates went from 3% to 7.5% in 2022-2023 -- the fastest increase in 40 years.
-Everyone expected a housing crash. It didn't happen everywhere, and the suburban "Zoom towns" responded
-very differently from urban cores. Your analysis tests whether market type predicts rate sensitivity.
+## Research Design
+
+### Main Research Question
+How sensitive is metro-level home price growth to changes in the 30-year mortgage rate, and does this sensitivity differ across urban, suburban, and rural housing markets?
+
+### Sub-Questions
+- What is the average effect of a 1 percentage-point increase in mortgage rates (with 1-3 month lags) on year-over-year home price growth?
+- Are suburban metros more rate-sensitive than urban core metros?
+- Did rate sensitivity increase during the 2022-2023 rapid tightening period?
+
+### Data Sources
+
+| Dataset | Source | What It Provides |
+|---|---|---|
+| Shiller Home Price Data | Open Dataset Catalog (Shiller Data) | Long-run U.S. home price index (national and metro-level) |
+| Macro Housing Indicators | FRED (`pandas-datareader` API) | 30-year mortgage rate, housing starts, unemployment |
+| Labor Market Indicators | BLS Open Dataset Catalog | Metro-level employment and wage growth |
+
+### Key Variables
+- **Outcome:** Year-over-year home price growth (%) by metro
+- **Main Driver:** 30-year fixed mortgage rate (lagged 1-3 months)
+- **Controls:** Local unemployment rate, wage growth, housing permits
+- **Groups:** Urban core vs. suburban vs. rural metros
+
+### Why This Matters
+Mortgage rates rose from about 3% to 7.5% in 2022-2023, one of the fastest increases in decades. While many expected a broad housing downturn, price responses varied widely across metro types. This project tests whether market type helps explain differences in mortgage-rate sensitivity.
