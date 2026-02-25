@@ -36,6 +36,37 @@ How sensitive is metro-level home price growth to changes in the 30-year mortgag
 | Macro Housing Indicators | FRED (`pandas-datareader` API) | 30-year mortgage rate, housing starts, unemployment |
 | Labor Market Indicators | BLS Open Dataset Catalog | Metro-level employment and wage growth |
 
+## Supplementary Data Integration (from OpenData_rows)
+
+Use the script below to fetch and integrate supplementary controls aligned with the research question.
+
+### What it pulls
+- **FRED (id 48)**: 30-year mortgage rate, housing permits, unemployment, CPI, employment-population ratio
+- **BLS (id 58)**: labor signal represented via FRED/BLS-linked labor series
+- **Economic Uncertainty Indices (id 28)**: policy uncertainty index (FRED series)
+
+### Run fetch only
+```bash
+python code/fetch_integrate_supplementary_data.py --start-date 2000-01-01
+```
+
+### Run fetch + integrate with your home-price panel
+Your home-price file should include a `date` column and (recommended) `metro`, `home_price_index`.
+```bash
+python code/fetch_integrate_supplementary_data.py \
+	--start-date 2000-01-01 \
+	--home-price-file data/raw/your_home_price_panel.csv
+```
+
+### Outputs
+- `data/raw/supplementary_sources_selected.csv`
+- `data/raw/supplementary_macro_monthly_raw.csv`
+- `data/processed/supplementary_macro_monthly_features.csv`
+- `data/final/supplementary_controls_panel.csv` (tidy panel with `Entity=REIT`, `Time=Month`)
+- `data/final/supplementary_controls_metadata.md`
+- `data/final/supplementary_controls_metadata.json`
+- `data/final/analysis_panel_with_supplementary.csv` (only when `--home-price-file` is provided)
+
 ### Key Variables
 - **Outcome:** Year-over-year home price growth (%) by metro
 - **Main Driver:** 30-year fixed mortgage rate (lagged 1-3 months)
