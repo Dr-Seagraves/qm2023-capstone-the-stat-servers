@@ -15,7 +15,7 @@ Outputs:
 - data/final/supplementary_controls_panel.csv (Entity=REIT, Time=Month)
 - data/final/supplementary_controls_metadata.md
 - data/final/supplementary_controls_metadata.json
-- data/final/analysis_panel_with_supplementary.csv (if --home-price-file provided)
+- data/final/analysis_panel_with_supplementary.csv
 """
 
 from __future__ import annotations
@@ -50,6 +50,9 @@ CORE_SERIES_COLUMNS = [
     "economic_policy_uncertainty_index",
     "employment_population_ratio_pct",
 ]
+
+
+DEFAULT_REIT_FILE = RAW_DATA_DIR / "REIT_sample_2000_2024_All_Variables.xlsx"
 
 
 def load_catalog_sources(catalog_path: Path) -> pd.DataFrame:
@@ -251,8 +254,8 @@ def main() -> None:
     parser.add_argument("--end-date", default=pd.Timestamp.today().strftime("%Y-%m-%d"), help="Panel end date (YYYY-MM-DD)")
     parser.add_argument(
         "--home-price-file",
-        default="",
-        help="Optional path to metro-level home price file (csv/xlsx/parquet) with at least a date column",
+        default=str(DEFAULT_REIT_FILE),
+        help="Path to REIT/home-price file (csv/xlsx/parquet) with at least a date column",
     )
     args = parser.parse_args()
 
@@ -285,16 +288,18 @@ def main() -> None:
     print(f"Saved metadata JSON: {metadata_json_out}")
     print(f"Selected source rows from catalog: {len(selected_sources)}")
 
-    if args.home_price_file:
-        home_price_path = Path(args.home_price_file)
-        if not home_price_path.is_absolute():
-            home_price_path = Path.cwd() / home_price_path
+    home_price_path = Path(args.home_price_file)
+    if not home_price_path.is_absolute():
+        home_price_path = Path.cwd() / home_price_path
 
-        home_price_df = load_home_price_data(home_price_path)
-        integrated_df = integrate_home_price_with_controls(home_price_df, featured_panel)
-        integrated_out = FINAL_DATA_DIR / "analysis_panel_with_supplementary.csv"
-        integrated_df.to_csv(integrated_out, index=False)
-        print(f"Saved integrated analysis panel: {integrated_out}")
+    if not home_price_path.exists():
+        raise FileNotFoundError(f"REIT/home-price file not found: {home_price_path}")
+
+    home_price_df = load_home_price_data(home_price_path)
+    integrated_df = integrate_home_price_with_controls(home_price_df, featured_panel)
+    integrated_out = FINAL_DATA_DIR / "analysis_panel_with_supplementary.csv"
+    integrated_df.to_csv(integrated_out, index=False)
+    print(f"Saved integrated analysis panel: {integrated_out}")
 
 
 if __name__ == "__main__":
