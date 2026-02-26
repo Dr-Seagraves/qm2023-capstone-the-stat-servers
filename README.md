@@ -45,12 +45,12 @@ Use the script below to fetch and integrate supplementary controls aligned with 
 - **BLS (id 58)**: labor signal represented via FRED/BLS-linked labor series
 - **Economic Uncertainty Indices (id 28)**: policy uncertainty index (FRED series)
 
-### Run fetch only
+### Run fetch + integrate (default REIT sample)
 ```bash
 python code/fetch_integrate_supplementary_data.py --start-date 2000-01-01
 ```
 
-### Run fetch + integrate with your home-price panel
+### Run fetch + integrate with your own home-price panel
 Your home-price file should include a `date` column and (recommended) `metro`, `home_price_index`.
 ```bash
 python code/fetch_integrate_supplementary_data.py \
@@ -65,7 +65,7 @@ python code/fetch_integrate_supplementary_data.py \
 - `data/final/supplementary_controls_panel.csv` (tidy panel with `Entity=REIT`, `Time=Month`)
 - `data/final/supplementary_controls_metadata.md`
 - `data/final/supplementary_controls_metadata.json`
-- `data/final/analysis_panel_with_supplementary.csv` (only when `--home-price-file` is provided)
+- `data/final/analysis_panel_with_supplementary.csv`
 
 ### Key Variables
 - **Outcome:** Year-over-year home price growth (%) by metro
