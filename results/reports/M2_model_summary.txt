@@ -1,0 +1,62 @@
+M2 Baseline Model (HC3)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 usdret   R-squared:                       0.011
+Model:                            OLS   Adj. R-squared:                  0.011
+Method:                 Least Squares   F-statistic:                     64.32
+Date:                Tue, 31 Mar 2026   Prob (F-statistic):           1.97e-41
+Time:                        01:36:39   Log-Likelihood:                 24557.
+No. Observations:               26868   AIC:                        -4.911e+04
+Df Residuals:                   26864   BIC:                        -4.907e+04
+Df Model:                           3                                         
+Covariance Type:                  HC3                                         
+=========================================================================================
+                            coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                    -0.0005      0.004     -0.130      0.897      -0.008       0.007
+mortgage_rate_30y_pct    -0.0005      0.001     -0.879      0.379      -0.002       0.001
+unemployment_rate_pct     0.0034      0.000      9.303      0.000       0.003       0.004
+cpi_inflation_yoy_pct    -0.0025      0.000     -6.458      0.000      -0.003      -0.002
+==============================================================================
+Omnibus:                    15556.627   Durbin-Watson:                   2.104
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          1872633.049
+Skew:                           1.834   Prob(JB):                         0.00
+Kurtosis:                      43.734   Cond. No.                         47.6
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+M2 Variant Model (HC3)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 usdret   R-squared:                       0.020
+Model:                            OLS   Adj. R-squared:                  0.020
+Method:                 Least Squares   F-statistic:                     48.49
+Date:                Tue, 31 Mar 2026   Prob (F-statistic):           1.53e-59
+Time:                        01:36:39   Log-Likelihood:                 24681.
+No. Observations:               26868   AIC:                        -4.935e+04
+Df Residuals:                   26861   BIC:                        -4.929e+04
+Df Model:                           6                                         
+Covariance Type:                  HC3                                         
+=========================================================================================
+                            coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                    -0.0004      0.004     -0.100      0.921      -0.008       0.008
+mortgage_rate_30y_pct     0.0004      0.001      0.650      0.515      -0.001       0.001
+unemployment_rate_pct     0.0033      0.000      9.087      0.000       0.003       0.004
+cpi_inflation_yoy_pct    -0.0027      0.000     -6.889      0.000      -0.004      -0.002
+beta                      0.0061      0.002      3.227      0.001       0.002       0.010
+btm                      -0.0122      0.002     -6.747      0.000      -0.016      -0.009
+market_equity          9.126e-08   4.29e-08      2.129      0.033    7.25e-09    1.75e-07
+==============================================================================
+Omnibus:                    16339.731   Durbin-Watson:                   2.094
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          1899271.510
+Skew:                           2.002   Prob(JB):                         0.00
+Kurtosis:                      43.994   Cond. No.                     7.86e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 7.86e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
