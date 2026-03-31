@@ -1,0 +1,185 @@
+{
+  "timestamp_utc": "2026-03-31T01:39:08.964444+00:00",
+  "python_version": "3.12.1 (main, Nov 27 2025, 10:47:52) [GCC 13.3.0]",
+  "platform": "Linux-6.8.0-1044-azure-x86_64-with-glibc2.39",
+  "parameters": {
+    "seed": 42,
+    "start_date": "2003-01-01",
+    "end_date": "2024-12-31",
+    "input_panel": "data/final/analysis_panel_with_supplementary.csv"
+  },
+  "checklist": [
+    {
+      "task_key": "notebook_required",
+      "regex": "capstone_eda\\.ipynb",
+      "found_in_readme": true,
+      "status": "ready",
+      "notes": ""
+    },
+    {
+      "task_key": "summary_required",
+      "regex": "M2_EDA_summary\\.md",
+      "found_in_readme": true,
+      "status": "ready",
+      "notes": ""
+    },
+    {
+      "task_key": "ai_audit_required",
+      "regex": "AI_AUDIT_APPENDIX\\.md",
+      "found_in_readme": true,
+      "status": "ready",
+      "notes": ""
+    },
+    {
+      "task_key": "plot_count_required",
+      "regex": "8\\s+required\\s+visualizations|Required Visualizations \\(Minimum 8\\)",
+      "found_in_readme": true,
+      "status": "ready",
+      "notes": ""
+    },
+    {
+      "task_key": "figures_dir_required",
+      "regex": "results/figures",
+      "found_in_readme": true,
+      "status": "ready",
+      "notes": ""
+    }
+  ],
+  "script_runs": [
+    {
+      "step": "fetch_integrate_supplementary_data",
+      "command": "/usr/local/python/3.12.1/bin/python /workspaces/qm2023-capstone-the-stat-servers/code/fetch_integrate_supplementary_data.py --start-date 2003-01-01 --end-date 2024-12-31",
+      "exit_code": 0,
+      "stdout_tail": "\u2713 Project structure verified at: /workspaces/qm2023-capstone-the-stat-servers\nSaved selected source metadata: /workspaces/qm2023-capstone-the-stat-servers/data/raw/supplementary_sources_selected.csv\nSaved raw supplementary panel: /workspaces/qm2023-capstone-the-stat-servers/data/raw/supplementary_macro_monthly_raw.csv\nSaved processed supplementary panel: /workspaces/qm2023-capstone-the-stat-servers/data/processed/supplementary_macro_monthly_features.csv\nSaved final supplementary controls panel: /workspaces/qm2023-capstone-the-stat-servers/data/final/supplementary_controls_panel.csv\nSaved metadata documentation: /workspaces/qm2023-capstone-the-stat-servers/data/final/supplementary_controls_metadata.md\nSaved metadata JSON: /workspaces/qm2023-capstone-the-stat-servers/data/final/supplementary_controls_metadata.json\nSelected source rows from catalog: 3\nSaved integrated analysis panel: /workspaces/qm2023-capstone-the-stat-servers/data/final/analysis_panel_with_supplementary.csv\n",
+      "stderr_tail": ""
+    }
+  ],
+  "verification": [
+    {
+      "artifact": "capstone_eda.ipynb",
+      "exists": true,
+      "type": "file",
+      "status": "PASS"
+    },
+    {
+      "artifact": "M2_EDA_summary.md",
+      "exists": false,
+      "type": "file",
+      "status": "FAIL"
+    },
+    {
+      "artifact": "AI_AUDIT_APPENDIX.md",
+      "exists": true,
+      "type": "file",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/tables/M2_summary_statistics.csv",
+      "exists": true,
+      "type": "file",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/reports/M2_model_summary.txt",
+      "exists": true,
+      "type": "file",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/figures/M2_*.png",
+      "exists": true,
+      "type": "count=9",
+      "status": "PASS"
+    },
+    {
+      "artifact": "analysis_panel schema contains Month/usdret/mortgage_rate_30y_pct",
+      "exists": true,
+      "type": "schema",
+      "status": "PASS"
+    }
+  ],
+  "tests": {
+    "ran": false,
+    "exit_code": null,
+    "stdout_tail": "",
+    "stderr_tail": "",
+    "note": "No test files found in tests/"
+  },
+  "artifacts": [
+    {
+      "path": "capstone_eda.ipynb",
+      "size_bytes": 980870,
+      "sha256": "451cc2b32ce89682bedad7aef7c2dd834b53f46744bcc2267b99f780ba9a6ae1"
+    },
+    {
+      "path": "data/processed/m2_eda_cleaned_panel.csv",
+      "size_bytes": 10732154,
+      "sha256": "dafb4d7a0dd744dd64a3bd1b335b8d74e9ccfdc8eb7db6d413826557c88950ba"
+    },
+    {
+      "path": "data/processed/m2_monthly_aggregate.csv",
+      "size_bytes": 27966,
+      "sha256": "642583cceb96857839b25de9d395a22b20c012e8446ae44ee37addab71893fd6"
+    },
+    {
+      "path": "results/tables/M2_summary_statistics.csv",
+      "size_bytes": 1102,
+      "sha256": "e0beb4fb7db074af54b468329b94989eb3eb509a4fb976093e1fa4ddfeb88ae2"
+    },
+    {
+      "path": "results/reports/M2_model_summary.txt",
+      "size_bytes": 4525,
+      "sha256": "0832fee07c1774f15ef734521eafb73f95b3767b8b93731fa46c3beb3cf49011"
+    },
+    {
+      "path": "results/reports/M2_plot_captions.md",
+      "size_bytes": 1792,
+      "sha256": "9c2f2fff18cfd19b853b3f73baeaa947d118e2e00219d76dbdb23d3381aaf77f"
+    },
+    {
+      "path": "results/figures/M2_01_correlation_heatmap.png",
+      "size_bytes": 175683,
+      "sha256": "28249c2fdc30769bfdb78a5cc51d37ba24e626b12f176e62c4a8c9b32c5a4155"
+    },
+    {
+      "path": "results/figures/M2_02_outcome_timeseries.png",
+      "size_bytes": 231299,
+      "sha256": "b17d21de7764f9934bdcf788b01038a443f02b9b71b63a022636489a6379e06d"
+    },
+    {
+      "path": "results/figures/M2_03_dual_axis_outcome_driver.png",
+      "size_bytes": 340415,
+      "sha256": "9465108d0db5c4c61471561795643de21eba6ff2b2528e123d2ab77499781f0c"
+    },
+    {
+      "path": "results/figures/M2_04_lagged_effects.png",
+      "size_bytes": 73208,
+      "sha256": "7a94de137955b275c416d4981d2ec2251177fcd3e505ec0f29ff4237e457cb0e"
+    },
+    {
+      "path": "results/figures/M2_05_group_boxplot.png",
+      "size_bytes": 65944,
+      "sha256": "41dbf6dfeb17ab4cdc125547f50a74f07b83c618af9bdaf772369770963dadac"
+    },
+    {
+      "path": "results/figures/M2_06_group_sensitivity.png",
+      "size_bytes": 72251,
+      "sha256": "1a5fcfc0ed1fe3e6b799704c98f0af1b2b982fa15ae0f67629ffc4df6cb05786"
+    },
+    {
+      "path": "results/figures/M2_07a_scatter_usdret_beta.png",
+      "size_bytes": 391136,
+      "sha256": "89618ee0986d4b83656fdea6e9ff2a5c951e0a1a284c8e8734364623919bb093"
+    },
+    {
+      "path": "results/figures/M2_07b_scatter_usdret_btm.png",
+      "size_bytes": 287299,
+      "sha256": "b67f48a76bd888ae3d80f45e29e897e44c5a247ade714a9317a668e946bd23cf"
+    },
+    {
+      "path": "results/figures/M2_08_decomposition.png",
+      "size_bytes": 550380,
+      "sha256": "7f471689f262aa2de6c6fdfc72cc6c3a298ae0f96415e99c9ebb13aca95e60f9"
+    }
+  ]
+}

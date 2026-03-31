@@ -64,3 +64,20 @@ QM 2023 Capstone — Milestone 1 (Data Pipeline)
 ## 4) Accountability Statement
 
 We used AI as a coding and documentation assistant, not as an authority. Final responsibility for correctness, reproducibility, and academic integrity remains with the team. All AI-assisted outputs were reviewed and validated before inclusion in this milestone submission.
+
+
+---
+
+## Milestone 2 (EDA Dashboard) Addendum
+
+### Disclose
+- AI tool used: GitHub Copilot Chat (GPT-5.3-Codex).
+- AI-assisted tasks: notebook scaffolding, EDA plotting pipeline, artifact verification checks, reproducibility manifest generation.
+
+### Verify
+- Notebook executed end-to-end and generated required artifacts in `results/figures`, `results/tables`, and `results/reports`.
+- Output existence and schema checks were executed in-notebook with PASS/FAIL reporting.
+
+### Critique
+- AI accelerated boilerplate and plotting patterns, but all outputs were validated via direct execution and file checks.
+- Interpretation claims in `M2_EDA_summary.md` remain subject to team review before final submission.
