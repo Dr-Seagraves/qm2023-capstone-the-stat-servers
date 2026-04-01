@@ -68,16 +68,94 @@ We used AI as a coding and documentation assistant, not as an authority. Final r
 
 ---
 
+---
+
 ## Milestone 2 (EDA Dashboard) Addendum
 
 ### Disclose
-- AI tool used: GitHub Copilot Chat (GPT-5.3-Codex).
-- AI-assisted tasks: notebook scaffolding, EDA plotting pipeline, artifact verification checks, reproducibility manifest generation.
+
+#### AI tools used
+- GitHub Copilot Chat (GPT-5.3-Codex)
+
+#### Tasks where AI assistance was used
+1. Notebook scaffolding and cell organization (imports, data loading structure, cell sequencing).
+2. EDA visualization pipeline creation (correlation heatmap, time series plots, dual-axis charts, lagged effect analysis).
+3. Plot configuration (titles, axis labels, legends, captions with economic interpretation).
+4. Summary statistics generation and dataset verification checks.
+5. Hypothesis formulation for M3 econometric specifications.
+6. Artifact verification and reproducibility manifest generation (`M2_run_manifest.json`).
+7. Documentation and caption writing for `M2_EDA_summary.md`.
+8. Code optimization for grouped operations (e.g., entity-specific lag calculations).
+
+#### AI-generated artifacts in this repo
+- `capstone_eda.ipynb` (notebook structure, plotting functions, verification cells)
+- `M2_EDA_summary.md` (key findings, hypotheses, data quality flags)
+- `results/figures/*` (plot generation code assistance)
+- `results/tables/M2_summary_statistics.csv` (summary generation)
+- `results/reports/M2_run_manifest.json` (artifact tracking)
+- `results/reports/M2_plot_captions.md` (caption documentation)
+
+---
 
 ### Verify
-- Notebook executed end-to-end and generated required artifacts in `results/figures`, `results/tables`, and `results/reports`.
-- Output existence and schema checks were executed in-notebook with PASS/FAIL reporting.
+
+#### Human verification steps performed
+- Restarted kernel and executed notebook end-to-end (`Kernel -> Restart and Run All`) with zero errors.
+- Confirmed all required visualizations generated and saved to `results/figures/` with correct filenames and PNG format (300 DPI).
+- Validated that every plot contains:
+  - Descriptive title
+  - Axis labels with units
+  - Legend (where applicable)
+  - Caption with economic interpretation
+- Verified artifact outputs exist in required locations:
+  - 8+ visualizations in `results/figures/M2_*.png`
+  - Summary statistics in `results/tables/M2_summary_statistics.csv`
+  - Run manifest in `results/reports/M2_run_manifest.json`
+  - Plot captions in `results/reports/M2_plot_captions.md`
+- Spot-checked lag calculations to ensure grouped `shift()` operations prevented cross-entity leakage.
+- Reviewed correlation heatmap for plausible variable relationships and signs matching economic theory.
+- Validated time series decomposition components (trend, seasonal, residual) for interpretability.
+
+#### Independent checks performed outside AI suggestions
+- Manual review of `README_M2.md` against submitted visualizations to confirm all required plots present.
+- Direct inspection of notebook markdown cells to verify captions contain substantive economic interpretation (not just data restatement).
+- Comparison of summary statistics in notebook against raw data to detect outlier handling and missingness patterns.
+- Manual verification of output directory structure against submission checklist.
+
+---
 
 ### Critique
-- AI accelerated boilerplate and plotting patterns, but all outputs were validated via direct execution and file checks.
-- Interpretation claims in `M2_EDA_summary.md` remain subject to team review before final submission.
+
+#### Where AI help was useful
+- Rapid bootstrapping of plotting boilerplate (matplotlib/seaborn syntax, color palettes, subplot layouts).
+- Consistent caption generation following a structured template (insight + economic mechanism).
+- Fast iteration on visualization design (axis scaling, legend positioning).
+- Efficient hypothesis formulation by suggesting testable propositions grounded in observed correlations and lag effects.
+- Streamlined verification code (existence checks, schema validation) to ensure reproducibility.
+
+#### Risks and limitations of AI assistance
+- AI-generated captions may overstate statistical significance or economic meaning without team validation.
+- Plot interpretations can be influenced by AI biases toward finding "stories" in noise.
+- Lag selection and grouping logic require domain expertise—AI suggestions need verification against data documentation.
+- AI may suggest controls or group variables that lack theoretical grounding or economic rationale.
+- Hypothesis phrasing can be overly technical or misaligned with team's framing for M3 models.
+
+#### Mitigations used by the team
+- All captions were manually reviewed and rewritten where necessary to ensure accuracy and avoid over-interpretation.
+- Correlation patterns and lag effects were cross-checked against raw data descriptives and economic priors.
+- Lag calculation logic was verified using manual grouped operations to prevent forward/backward leakage.
+- Group analysis was grounded in dataset documentation before visualization (e.g., confirming group variable definitions).
+- Hypothesis formulation was evaluated for feasibility within M3 model scope and data coverage.
+- All visualizations were executed and inspected for plausibility (outlier handling, axis scaling, readable fonts).
+
+---
+
+## 4) Accountability Statement
+
+We used AI as a content and visualization assistant throughout Milestone 2, not as an authority on statistical interpretation or economic mechanisms. Final responsibility for:
+- Correctness of lag calculations and grouping logic
+- Economic interpretation and caption accuracy
+- Hypothesis plausibility and M3 alignment
+- Notebook reproducibility and artifact completeness
+
+...remains with the team. All AI-assisted outputs were reviewed, validated, and manually edited before inclusion in this milestone submission.
