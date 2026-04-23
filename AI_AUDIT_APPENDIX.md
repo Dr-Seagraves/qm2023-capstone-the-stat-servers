@@ -159,3 +159,83 @@ We used AI as a content and visualization assistant throughout Milestone 2, not 
 - Notebook reproducibility and artifact completeness
 
 ...remains with the team. All AI-assisted outputs were reviewed, validated, and manually edited before inclusion in this milestone submission.
+
+
+---
+
+## Milestone 3 (Econometric Models) Addendum
+
+### Disclose
+
+#### AI tools used
+- GitHub Copilot Chat (GPT-5.3-Codex)
+
+#### Tasks where AI assistance was used
+1. Built `capstone_models.py` end-to-end with sectioned workflow (data prep, Model A, Model B, diagnostics, robustness, export).
+2. Suggested and implemented fixed-effects specification adjustments after detecting absorption/collinearity under monthly time FE.
+3. Implemented diagnostic tests and plots:
+   - Breusch-Pagan heteroskedasticity test
+   - VIF multicollinearity table
+   - Residual-vs-fitted and Q-Q plots
+4. Implemented robustness checks:
+   - Clustered vs unadjusted SE comparison
+   - Alternative lag structures (lag1/lag2/lag3)
+   - Outlier-period exclusion (2020-03 to 2020-05)
+   - Group subsample estimation (size split)
+5. Produced publication-style regression table and Model B comparison outputs.
+6. Drafted `M3_interpretation.md` with economic interpretation and caveats.
+
+#### AI-generated artifacts in this repo
+- `capstone_models.py`
+- `M3_interpretation.md`
+- `results/tables/M3_*.csv`
+- `results/figures/M3_*.png`
+- `results/reports/M3_model_summary.txt`
+
+---
+
+### Verify
+
+#### Human verification steps performed
+- Ran `capstone_models.py` from top to bottom in a clean execution path and confirmed successful completion.
+- Verified all required outputs were created in assignment-specified directories:
+  - Tables: `results/tables/M3_*.csv`
+  - Figures: `results/figures/M3_*.png`
+  - Report summary: `results/reports/M3_model_summary.txt`
+- Spot-checked key model outputs for plausibility:
+  - Model A coefficient signs/magnitudes
+  - Model B metrics (R2, RMSE)
+  - Diagnostics p-values and VIF thresholds
+- Confirmed at least three robustness checks were executed and saved as separate artifacts.
+- Reviewed `M3_interpretation.md` against generated values to ensure numeric consistency.
+
+#### Independent checks performed outside AI suggestions
+- Manual read-through of `README_M3.extracted.md` deliverable checklist and direct mapping to output files.
+- Manual review of identification logic when monthly time FE absorbed national macro regressors.
+- Manual review of residual plots and diagnostic interpretation to avoid over-claiming causal certainty.
+
+---
+
+### Critique
+
+#### Where AI help was useful
+- Accelerated implementation of a reproducible, full-pipeline econometrics script.
+- Quickly surfaced model-identification issues (absorbed regressors) and feasible alternatives.
+- Streamlined creation of standardized output artifacts and memo structure.
+
+#### Risks and limitations of AI assistance
+- AI can overgeneralize causal interpretation from observational panel results.
+- AI-generated model specifications can be technically runnable but not always ideal for identification goals.
+- Documentation drafted by AI can sound more definitive than warranted by evidence.
+
+#### Mitigations used by the team
+- Validated every reported numeric result against generated CSV artifacts.
+- Explicitly documented identification constraints and FE trade-offs in `M3_interpretation.md`.
+- Kept robustness and diagnostics central to inference rather than relying on a single specification.
+- Retained human judgment for final methodological choices and submission decisions.
+
+---
+
+## Accountability Statement (M3)
+
+We used AI as a coding and documentation assistant for Milestone 3, not as a substitute for econometric reasoning. Final responsibility for model design, interpretation, robustness, and academic integrity remains with the team. All AI-assisted outputs were executed, inspected, and manually verified before submission.

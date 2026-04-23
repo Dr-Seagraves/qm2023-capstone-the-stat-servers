@@ -1,0 +1,12 @@
+variable,Model1_FE_Unadjusted,Model1_SE,Model2_FE_Clustered,Model2_SE,Model3_FE_ExclOutliers,Model3_SE
+mortgage_rate_lag2,-0.0020,(0.0016),-0.0020,(0.0015),0.0002,(0.0014)
+unemployment_rate_pct,0.0121***,(0.0007),0.0121***,(0.0009),0.0061***,(0.0009)
+cpi_inflation_yoy_pct,-0.0042***,(0.0008),-0.0042***,(0.0008),-0.0059***,(0.0008)
+beta,0.0215***,(0.0020),0.0215***,(0.0029),0.0224***,(0.0028)
+btm,-0.0232***,(0.0014),-0.0232***,(0.0049),-0.0215***,(0.0046)
+log_market_equity,0.0113***,(0.0013),0.0113***,(0.0026),0.0102***,(0.0025)
+Entity FE,Yes,,Yes,,Yes,
+Time FE,Year FE,,Year FE,,Year FE,
+Clustered SE,No,,Yes,,Yes,
+N,"26,868",,"26,868",,"26,475",
+R2 (within),0.0602,,0.0602,,0.0498,
