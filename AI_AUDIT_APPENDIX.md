@@ -74,6 +74,15 @@ We used AI as a coding and documentation assistant, not as an authority. Final r
 
 ### Disclose
 
+#### M3 jobs completed
+1. Implemented the full M3 econometric workflow in `capstone_models.py`.
+2. Estimated Model A (fixed effects) and Model B (ML comparison: OLS vs Random Forest).
+3. Ran required diagnostics (Breusch-Pagan, VIF, residual plots).
+4. Completed 3+ robustness checks (SE comparison, alternative lags, outlier exclusion, subgroup analysis).
+5. Exported submission artifacts to `results/tables/`, `results/figures/`, and `results/reports/`.
+6. Wrote `M3_interpretation.md` with economic interpretation, caveats, and identification discussion.
+7. Verified script execution end-to-end and confirmed output consistency with reported results.
+
 #### AI tools used
 - GitHub Copilot Chat (GPT-5.3-Codex)
 
