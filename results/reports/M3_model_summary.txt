@@ -1,0 +1,12 @@
+Milestone 3 Model Run Summary
+========================================
+N (Model A): 26868
+Within R2 (Model A clustered): 0.0602
+Driver coef (mortgage_rate_lag2): -0.0020
+Driver p-value: 0.1671
+Breusch-Pagan p-value: 8.587e-234
+
+Model B test metrics:
+       model   test_r2  test_rmse
+         OLS -0.100309   0.106900
+RandomForest -0.147008   0.109145
