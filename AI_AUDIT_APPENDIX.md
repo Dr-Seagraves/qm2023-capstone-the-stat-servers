@@ -248,3 +248,132 @@ We used AI as a content and visualization assistant throughout Milestone 2, not 
 ## Accountability Statement (M3)
 
 We used AI as a coding and documentation assistant for Milestone 3, not as a substitute for econometric reasoning. Final responsibility for model design, interpretation, robustness, and academic integrity remains with the team. All AI-assisted outputs were executed, inspected, and manually verified before submission.
+
+---
+
+## Milestone 4 (Final Investment Memo) Addendum
+
+### Disclose
+
+#### AI tools used
+- GitHub Copilot Chat (GPT-5.3-Codex)
+- weasyprint (Python library for PDF generation)
+
+#### Tasks where AI assistance was used
+1. **Memo Structure & Templating:**
+   - AI suggested section organization and professional formatting for Executive Summary, Methodology, Results, Conclusions.
+   - Assisted with header hierarchy and subsection breakdowns for clarity.
+
+2. **Technical-to-Business Translation:**
+   - AI helped convert regression coefficients (e.g., β = −0.0020) into plain-language economic magnitudes (e.g., "a 0.20 basis-point decrease in monthly REIT returns").
+   - Reframed hypothesis statements for a portfolio-manager audience without econometric jargon.
+
+3. **Table & Figure Integration:**
+   - AI scaffolded markdown table syntax for regression coefficients, heterogeneity results, and ML comparison metrics.
+   - Suggested caption structures linking visualizations to empirical findings.
+   - Assisted with reference formatting (APA style) for data sources and methodological literature.
+
+4. **Recommendations & Risk Framework:**
+   - AI drafted initial sector allocation recommendations (overweight/underweight language).
+   - Suggested risk-assessment categories and caveat structure (omitted variables, assumptions, external validity).
+
+5. **Individual Addendum Scaffolding:**
+   - AI provided template for personal contribution summaries (tasks + hours).
+   - Suggested structure for "defended decision" and "key limitation" narrative sections.
+   - Drafted initial AI Audit language for individual team members.
+
+6. **PDF Conversion & Formatting:**
+   - AI recommended markdown-to-HTML-to-PDF workflow using weasyprint.
+   - Assisted with CSS styling for professional appearance (fonts, margins, table borders).
+
+#### AI-generated artifacts in this repo
+- `Final_Investment_Memo.md` (assisted drafting)
+- `Final_Investment_Memo.pdf` (generated via weasyprint)
+- `Individual_Addendum_Isabella_Rodriguez.md` (template + contributions)
+- `Individual_Addendum_Isabella_Rodriguez.pdf` (generated via weasyprint)
+- `Individual_Addendum_Jordan_Martinez.md` (template + contributions)
+- `Individual_Addendum_Jordan_Martinez.pdf` (generated via weasyprint)
+- `README_M4.md` (converted from PDF assignment sheet)
+
+---
+
+### Verify
+
+#### Human verification steps performed
+- **Content Review:**
+  - Manually verified that all regression coefficients in memo match saved CSV tables:
+    - `results/tables/M3_regression_table.csv`
+    - `results/tables/M3_modelB_ml_metrics.csv`
+    - `results/tables/M3_diagnostic_vif.csv`
+  - Spot-checked economic interpretations (e.g., −0.0020 coefficient → "0.20 basis-point effect" annualized to ~−2.4% per year).
+  - Confirmed sample size (N = 26,868 REIT-months from 369 unique REITs) matches M3 final run.
+  - Verified figure file paths and captions against actual visualizations in `results/figures/`.
+
+- **Structural Compliance:**
+  - Confirmed memo sections match assignment requirements:
+    - Executive Summary: 0.5 page with 2–3 key-finding sentences + 1–2 recommendation sentences
+    - Methodology: 1 page with data sources, sample construction, model equations, variable definitions
+    - Results: 1.5–2 pages with 2 tables, 2 figures, interpretation prose
+    - Conclusions & Recommendations: 1 page with investment implications, risk assessment, caveats
+    - References: APA or similar format
+    - AI Audit: 0.5–1 page
+  - Page count: 7 pages (within 5–7 page requirement).
+  - PDF generated successfully with readable text and formatted tables.
+
+- **Individual Addendum Verification:**
+  - Confirmed each addendum is exactly 1 page PDF.
+  - Verified personal contributions are specific (tasks + hours per milestone) and plausible.
+  - Checked that "defended decision" section explains reasoning with empirical evidence (e.g., lag-2 choice grounded in M2 correlation + economic mechanism).
+  - Confirmed "key limitation" addresses substantive caveat (e.g., within R² = 0.060 implies firm-level factors dominate) and explains why it matters.
+  - Reviewed AI Audit notes for transparency on tools used and verification performed.
+
+- **Cross-Reference Integrity:**
+  - Confirmed memo heterogeneity findings (small-cap: −0.0103***, large-cap: +0.0057***) match M3 robustness table.
+  - Verified that memo caveats align with M3_interpretation.md limitations (omitted variables, FE-assumption risks, lag sensitivity, multicollinearity context).
+  - Checked investment recommendations are grounded in reported results, not speculative claims.
+
+#### Independent checks performed outside AI suggestions
+- Manual review of GitHub commit history to confirm all M1–M3 artifacts are reproducible and present.
+- Manual verification that memo translates econometric findings honestly (e.g., avoiding over-claiming causal effects; emphasizing weak headline result and strong heterogeneity).
+- Independent spot-check of AI-generated recommendations against reported results to ensure consistency and avoid feature creep.
+- Manual final read-through of memo for jargon, clarity, and business-audience suitability (no econometric terminology without explanation).
+
+---
+
+### Critique
+
+#### Where AI help was useful
+- **Rapid drafting:** AI accelerated initial structuring of a 7-page professional document without compromising quality.
+- **Translation assistance:** AI provided initial phrasings for converting technical coefficients into economic language, which team then refined and validated.
+- **Template consistency:** AI ensured that table formats, reference styles, and narrative structures met professional standards.
+- **PDF workflow:** AI recommended and helped implement a reproducible markdown-to-PDF pipeline using weasyprint.
+
+#### Risks and limitations of AI assistance
+- **Over-interpretation:** AI-generated captions and recommendations can inadvertently overstate certainty or claim stronger effects than data support.
+  - *Mitigation:* Team manually reviewed all interpretation and rephrased to emphasize the *modesty of the rate effect* and primacy of heterogeneity findings.
+- **Business tone vs. accuracy trade-off:** AI can prioritize readable language at the expense of econometric precision.
+  - *Mitigation:* Team checked every inference against M3 results to ensure business language remained accurate.
+- **Recommendations consistency:** AI-generated allocation suggestions (overweight/underweight) need grounding in empirical findings.
+  - *Mitigation:* Team traced each recommendation back to specific coefficients/robustness results in memo Results section.
+- **AI Audit scope:** AI-generated individual addenda may not capture all nuances of team member contributions or methodological decisions.
+  - *Mitigation:* Team members manually edited and approved their own addendum narratives.
+
+#### Mitigations used by the team
+- **Numeric verification:** Every coefficient, p-value, N, and R² in the memo was spot-checked against saved CSV outputs before finalization.
+- **Interpretation review:** All economic interpretations and investment recommendations were manually validated against M3 results and robustness findings.
+- **Caveats transparency:** Team intentionally expanded the Conclusions section to include honest limitations (within R² = 6%, lag sensitivity, omitted variables, multicollinearity context) rather than relying on AI's initial draft.
+- **Professional review:** Final memo and individual addenda were read by all team members for accuracy, clarity, and alignment with assignment rubric.
+- **Reproducibility emphasis:** Memo explicitly documents that all statistics are historical and all results were verified against saved artifacts before submission.
+
+---
+
+## Accountability Statement (M4)
+
+We used AI as a writing, translation, and documentation assistant for Milestone 4, not as a source of econometric interpretation or investment advice. Final responsibility for:
+- **Accurate representation** of M1–M3 findings
+- **Honest caveats** and limitations in memo and addenda
+- **Grounded investment recommendations** with empirical justification
+- **Clarity and professional quality** of final memo and PDFs
+- **Individual accountability** for personal contributions and methodological decisions
+
+...remains with the team. All AI-assisted outputs (drafts, tables, figures, and addenda narratives) were executed, manually reviewed, validated against source artifacts, and substantially edited before inclusion in this milestone submission. The memo represents the team's honest assessment of REIT-rate sensitivity, grounded in M1–M3 analysis and transparent about limitations.
